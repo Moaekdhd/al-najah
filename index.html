@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الناجح للعلوم العربية | Al-Najah</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #d4af37;
+            --dark-bg: #121212;
+            --arabic-font: 'Amiri', serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+            background-color: #f4f4f4;
+            user-select: none; /* منع تحديد النصوص */
+        }
+
+        /* منع تصوير الشاشة في بعض المتصفحات ومنع النسخ */
+        @media print {
+            body { display: none; }
+        }
+
+        /* هيدر الصفحة مع الخلفيات المتغيرة */
+        header {
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            transition: background-image 2s ease-in-out;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .overlay {
+            background: rgba(0, 0, 0, 0.7);
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        #khwarizm-text {
+            font-size: 1.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 10px;
+            height: 40px;
+            font-family: 'Cairo', sans-serif;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-family: var(--arabic-font);
+            font-size: 4rem;
+            margin: 10px 0;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        /* قسم الكورسات (مثال) */
+        .container {
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            border-top: 5px solid var(--primary-gold);
+        }
+
+        .price-tag {
+            font-size: 1.2rem;
+            color: #27ae60;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        /* مشغل الفيديو المحمي */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            margin-top: 20px;
+            background: #000;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: auto;
+        }
+
+        /* العلامة المائية للحماية */
+        .watermark {
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            opacity: 0.3;
+            color: white;
+            font-size: 12px;
+            pointer-events: none;
+            z-index: 99;
+            white-space: nowrap;
+        }
+
+        .btn-contact {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--primary-gold);
+            color: black;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-top: 30px;
+            transition: 0.3s;
+        }
+
+        .btn-contact:hover {
+            transform: scale(1.05);
+            background: #b8962d;
+        }
+
+        footer {
+            background: #000;
+            color: #888;
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body oncontextmenu="return false;"> <header id="hero">
+        <div class="overlay">
+            <div id="khwarizm-text"></div>
+            <h1>الناجح للعلوم العربية</h1>
+            <p>منصة تعليمية متخصصة في لغة الضاد</p>
+            <a href="https://www.facebook.com/share/g/184XE8n7EE/" class="btn-contact">تواصل معنا الآن</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="course-card">
+            <h2>دورة البلاغة الشاملة</h2>
+            <div class="price-tag" id="course-price">السعر: 150 ج.م</div>
+            
+            <div class="video-wrapper">
+                <div class="watermark" id="user-watermark">منصة الناجح - رقم الطالب: 01xxxxxxxxx</div>
+                <iframe 
+                    id="video-player"
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&modestbranding=1&showinfo=0" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <p style="margin-top:15px; color:#666;">ملاحظة: هذا الكورس متاح فقط للمشتركين.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>جميع الحقوق محفوظة لدى منصة الناجح و Khwarizm Company</p>
+    </footer>
+
+    <script>
+        // 1. تغيير النصوص (خوارزم تقدم لكم)
+        const khwarizmText = document.getElementById('khwarizm-text');
+        const phrases = ["Khwarizm Presents", "خوارزم تقدم لكم"];
+        let phraseIdx = 0;
+
+        function updateText() {
+            khwarizmText.innerText = phrases[phraseIdx];
+            phraseIdx = (phraseIdx + 1) % phrases.length;
+        }
+        setInterval(updateText, 3000);
+        updateText();
+
+        // 2. تغيير الخلفيات العربية (روابط صور زخارف عربية)
+        const hero = document.getElementById('hero');
+        const bgImages = [
+            'url("https://images.unsplash.com/photo-1578301978018-3005759f48f7?q=80&w=2044")', 
+            'url("https://images.unsplash.com/photo-1564121211835-e88c852648ab?q=80&w=2070")'
+        ];
+        let bgIdx = 0;
+
+        function updateBg() {
+            hero.style.backgroundImage = bgImages[bgIdx];
+            bgIdx = (bgIdx + 1) % bgImages.length;
+        }
+        setInterval(updateBg, 7000);
+        updateBg();
+
+        // 3. حماية المحتوى: منع اختصارات تسجيل الشاشة
+        document.addEventListener('keydown', function(e) {
+            // منع F12, Ctrl+Shift+I, Ctrl+U, PrintScreen
+            if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73) || (e.ctrlKey && e.keyCode == 85) || e.keyCode == 44) {
+                alert("عذراً، لا يمكن استخدام أدوات المطور أو تصوير الشاشة حفاظاً على الحقوق.");
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // 4. تحريك العلامة المائية فوق الفيديو لمنع التسجيل
+        const watermark = document.getElementById('user-watermark');
+        setInterval(() => {
+            const x = Math.random() * 70;
+            const y = Math.random() * 70;
+            watermark.style.left = x + '%';
+            watermark.style.top = y + '%';
+        }, 4000);
+
+        // وظائف وهمية للآدمن (يمكن ربطها بقاعدة بيانات لاحقاً)
+        function setCourseDetails(price, videoId) {
+            document.getElementById('course-price').innerText = "السعر: " + price + " ج.م";
+            document.getElementById('video-player').src = "https://www.youtube.com/embed/" + videoId;
+        }
+    </script>
+</body>
+  </html>
+  
